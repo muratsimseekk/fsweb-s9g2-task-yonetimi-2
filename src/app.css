@@ -1,127 +1,126 @@
 /* LAYOUT */
-.app {
-  height: 100vh;
-  display: flex;
-}
-
 .columns {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 2rem 2rem 1.5rem;
-  gap: 2rem;
-  overflow: auto;
+  @apply flex-1 flex justify-center flex-wrap px-[2rem] pt-[2rem] pb-[1.5rem] gap-8 overflow-auto;
 }
 
 .column {
-  flex: 1;
-  min-width: 240px;
-  max-width: 360px;
+  @apply flex-1 min-w-[240px] max-w-[360px];
 }
 
 .formColumn {
-  background-color: #fff;
-  flex: 0 0 360px;
-  border-right: 1px solid #f3d4b0;
-  overflow: auto;
+  @apply bg-[#fff] flex-none w-[360px] border-r-[1px] border-solid border-[#f3d4b0];
 }
-
 .column-title {
-  font-size: 1.5rem;
-  padding-left: 0.75rem;
+  /* font-size: 1.5rem;
+  padding-left: 0.75rem; */
+  @apply pl-3 text-2xl;
 }
 /* LAYOUT */
 
 /* TASK */
 .task {
-  padding: 1.5rem;
+  /* padding: 1.5rem;
   background-color: #fff;
   border-radius: 5px;
   line-height: 1.5;
   margin-top: 1rem;
-  box-shadow: 0 4px 5px 0 rgb(0 0 0 / 10%);
+  box-shadow: 0 4px 5px 0 rgb(0 0 0 / 10%); */
+  @apply p-6 bg-white rounded-[5px] leading-6 mt-4 shadow-[0_4px_5px_0px_rgba(0,0,0,0.1)];
 }
 
 .task h3 {
-  font-size: 18px;
-  color: #c8781a;
+  /* font-size: 18px;
+  color: #c8781a; */
+  @apply text-[18px] text-[#c8781a];
 }
 
 .task p {
-  padding: 0.5rem 0 0.75rem;
+  /* padding: 0.5rem 0 0.75rem;
   font-size: 14px;
-  color: #444;
+  color: #444; */
+
+  @apply p-[0.5rem_0_0.75rem] text-[14px] text-[#444];
 }
 
 .task button {
-  display: block;
+  /* display: block;
   padding: 8px 12px;
   margin-left: auto;
   background-color: #fecc91;
   box-shadow: 0 4px 5px 0 rgb(0 0 0 / 5%);
   border-radius: 3px;
   border: 0;
-  cursor: pointer;
+  cursor: pointer; */
+
+  @apply block py-2 px-3 ml-auto bg-[#fecc91] shadow-[0_4px_5px_0_rgba(0,0,0,0.05)] rounded-[3px] border-[0px] cursor-pointer;
 }
 
 .pill {
-  display: inline-block;
+  /* display: inline-block;
   padding: 5px 12px;
   font-size: 14px;
   border: 1px solid #ccc;
   margin-right: 4px;
   margin-bottom: 6px;
-  border-radius: 30px;
+  border-radius: 30px; */
+  @apply inline-block py-[5px] px-3 text-[14px] border border-solid border-[#ccc] mr-1 mb-[6px] rounded-[30px];
 }
 
 .deadline {
-  font-size: 12px;
-  padding-top: 4px;
+  /* font-size: 12px;
+  padding-top: 4px; */
+  @apply text-[12px] pt-1;
 }
 
 .deadline span {
-  padding: 3px 8px;
+  /* padding: 3px 8px;
   border-radius: 2px;
-  display: inline-block;
+  display: inline-block; */
+  @apply inline-block rounded-sm py-[3px] px-2;
 }
 
 .normal {
-  background-color: #ffd9d4;
+  /* background-color: #ffd9d4; */
+  @apply bg-[#ffd9d4];
 }
 .urgent {
-  background-color: #d4d7ff;
+  /* background-color: #d4d7ff; */
+  @apply bg-[#d4d7ff];
 }
 /* TASK */
 
 /* FORM */
 .form-container {
-  padding: 2rem 2rem 1.5rem;
-  border-bottom: 1px solid #ddd;
+  /* padding: 2rem 2rem 1.5rem;
+  border-bottom: 1px solid #ddd; */
+  @apply px-8 pt-[2rem] pb-[1.5rem] border-b border-solid border-[#ddd];
 }
 
 .form-container h2 {
-  font-size: 1.5rem;
-  padding-bottom: 0.5rem;
+  /* font-size: 1.5rem;
+  padding-bottom: 0.5rem; */
+  @apply text-2xl pb-2;
 }
 
 .form-line {
-  padding-top: 1rem;
+  /* padding-top: 1rem; */
+  @apply pt-4;
 }
 
 .input-text,
 .input-textarea {
-  display: block;
+  /* display: block;
   width: 100%;
   border: 1px solid #ccc;
   padding: 5px;
   font-size: 14px;
   line-height: 1.5;
-  border-radius: 3px;
+  border-radius: 3px; */
+  @apply block w-full border border-solid border-[#ccc] p-[5px] text-[14px] leading-6 rounded-[3px];
 }
 
 .input-checkbox {
-  font-size: 14px;
+  /* font-size: 14px;
   padding: 6px 8px 6px 4px;
   border-radius: 3px;
   border: 1px solid #ccc;
@@ -129,23 +128,26 @@
   margin-bottom: 0.5rem;
   display: inline-flex;
   align-items: center;
-  cursor: pointer;
+  cursor: pointer; */
+  @apply text-[14px] py-[6px] pr-2 pl-1 border border-solid border-[#ccc] mr-2 mb-2 inline-flex items-center cursor-pointer;
 }
 
 .input-label {
-  font-size: 14px;
+  /* font-size: 14px;
   display: block;
-  padding-bottom: 6px;
+  padding-bottom: 6px; */
+  @apply text-[14px] block pb-[6px];
 }
 
 .input-error {
-  font-size: 12px;
+  /* font-size: 12px;
   padding-top: 3px;
-  color: rgb(230, 43, 43);
+  color: rgb(230, 43, 43); */
+  @apply text-[12px] pt-[3px] text-[#e62b2b];
 }
 
 .submit-button {
-  display: block;
+  /* display: block;
   width: 100%;
   border: 0;
   padding: 0.75rem 1rem;
@@ -153,12 +155,14 @@
   color: rgba(0, 0, 0, 0.6);
   cursor: pointer;
   border-radius: 3px;
-  box-shadow: 0 4px 5px 0 rgb(0 0 0 / 5%);
+  box-shadow: 0 4px 5px 0 rgb(0 0 0 / 5%); */
+  @apply block w-full border-0 py-3 px-4 bg-[#fecc91] text-[#00000099] cursor-pointer rounded-[3px] shadow-[0_4px_5px_0_rgb(0,0,0,0.05)];
 }
 
 .submit-button:disabled {
-  opacity: 0.5;
+  /* opacity: 0.5;
   cursor: not-allowed;
-  box-shadow: none;
+  box-shadow: none; */
+  @apply opacity-[0.5] cursor-not-allowed shadow-none;
 }
 /* FORM */

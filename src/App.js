@@ -28,7 +28,7 @@ function App() {
   }
 
   return (
-    <div className="app">
+    <div className="h-[100vh] flex">
       <div className="formColumn">
         <div className="form-container">
           <h2>Yeni Task</h2>
