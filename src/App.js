@@ -18,9 +18,6 @@ function App() {
   function handlePeopleSubmit(yeniKisi) {
     setTeam([...team, yeniKisi]);
   }
-  console.log(tasks);
-
-  const suan = new Date();
 
   function handleComplete(id) {
     const tasksCopy = [...tasks];

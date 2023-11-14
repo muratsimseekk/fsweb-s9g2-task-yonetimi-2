@@ -1,21 +1,28 @@
-import { formatDistance, parseISO } from "date-fns";
+import {
+  differenceInMilliseconds,
+  formatDistance,
+  parse,
+  parseISO,
+} from "date-fns";
 import { formatDistanceToNow } from "date-fns/esm";
 import React from "react";
 
 const Task = ({ taskObj, onComplete }) => {
-  function zaman() {
-    const startDate = new Date();
-    const endDate = parseISO(taskObj.deadline);
-
-    const distance = formatDistance(startDate, endDate);
-    return distance;
-  }
+  const endDate = parseISO(taskObj.deadline);
+  const distance = formatDistanceToNow(endDate);
+  const msDifference = differenceInMilliseconds(endDate, new Date());
+  // // console.log(typeof msDifference); // number
+  console.log("saat farki : ", Math.floor(msDifference / 1000 / 60 / 60));
 
   return (
     <div className="task">
       <h3>{taskObj.title}</h3>
       <div className="deadline">
-        son teslim: <span>{zaman()}</span>
+        {msDifference / 1000 / 60 / 60 <= 72 ? (
+          <span className="bg-[#FFD9D4]">Son teslim: {distance} </span>
+        ) : (
+          <span className="bg-indigo-200"> Son teslim: {distance} </span>
+        )}
       </div>
       <p>{taskObj.description}</p>
       <div>
