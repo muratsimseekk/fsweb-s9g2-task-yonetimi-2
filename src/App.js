@@ -4,27 +4,43 @@ import Task from "./Task";
 import TaskHookForm from "./TaskHookForm";
 import PeopleForm from "./PeopleForm";
 import { initialTasks, initialTeam } from "./data";
-import { toast } from 'react-toastify';
-
+import { toast } from "react-toastify";
+import { formatDistance, parseISO } from "date-fns";
+import { formatDistanceStrict } from "date-fns/esm";
 
 function App() {
   const [tasks, setTasks] = useState(initialTasks);
   const [team, setTeam] = useState(initialTeam);
-
   function handleTaskSubmit(yeniTask) {
-    setTasks([yeniTask, ...tasks])
+    setTasks([yeniTask, ...tasks]);
   }
 
   function handlePeopleSubmit(yeniKisi) {
-    setTeam([...team, yeniKisi])
+    setTeam([...team, yeniKisi]);
+  }
+  console.log(tasks);
+
+  let arr = [];
+
+  const suan = new Date();
+
+  function zaman() {
+    for (let i = 0; i < tasks.length; i++) {
+      // Assuming tasks[i].deadline is already a Date object
+      let endDate = parseISO(tasks[i].deadline);
+      let result = formatDistance(suan, endDate);
+      arr.push(result);
+    }
+
+    return arr;
   }
 
+  console.log(zaman());
   function handleComplete(id) {
     const tasksCopy = [...tasks];
-    const ilgiliTask = tasksCopy.filter(t => t.id === id)[0];
+    const ilgiliTask = tasksCopy.filter((t) => t.id === id)[0];
     ilgiliTask.status = "yapıldı";
     setTasks(tasksCopy);
-
     toast.success(`Tebrikler! "${ilgiliTask.title}" tamamlandı!`);
   }
 
@@ -63,7 +79,6 @@ function App() {
           </div>
         </div>
       </div>
-
     </div>
   );
 }
