@@ -20,22 +20,8 @@ function App() {
   }
   console.log(tasks);
 
-  let arr = [];
-
   const suan = new Date();
 
-  function zaman() {
-    for (let i = 0; i < tasks.length; i++) {
-      // Assuming tasks[i].deadline is already a Date object
-      let endDate = parseISO(tasks[i].deadline);
-      let result = formatDistance(suan, endDate);
-      arr.push(result);
-    }
-
-    return arr;
-  }
-
-  console.log(zaman());
   function handleComplete(id) {
     const tasksCopy = [...tasks];
     const ilgiliTask = tasksCopy.filter((t) => t.id === id)[0];
